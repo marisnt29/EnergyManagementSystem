@@ -1,0 +1,30 @@
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Use full viewport height */
+}
+
+.admin-header {
+  text-align: center;
+}
+
+.admin-content {
+  display: flex;
+  justify-content: space-between; /* Space out user list and devices list */
+  padding: 20px;
+  height: calc(100% - 60px); /* Adjust height based on your header */
+}
+
+.left-pane, .right-pane {
+  width: 48%; /* Adjust width as per requirement */
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+}
+
+/* Add this to align the chat button to the right */
+.chat-button-container {
+  text-align: right; /* Aligns the button to the right */
+  margin-top: -50px; /* Adjust based on your layout */
+  margin-right: 20px; /* Right margin */
+}

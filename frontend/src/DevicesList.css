@@ -1,0 +1,38 @@
+.devices-list {
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .device-list-item {
+      padding: 10px;
+      border: 1px solid #d1d1d1;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .device-item {
+      display: flex;
+      align-items: center;
+    }
+  
+    .device-info {
+      margin-left: 10px;
+    }
+  
+    .device-info h3 {
+      font-size: 16px;
+      margin: 0;
+    }
+  
+    .device-info p {
+      font-size: 14px;
+      margin: 0;
+    }
+  }

@@ -1,0 +1,34 @@
+.user-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.device-list {
+  flex-grow: 1; 
+  list-style: none;
+  padding: 0; 
+}
+
+.device-list-item {
+  background-color: #f7f7f7; 
+  border: 1px solid #ddd;
+  margin-bottom: 20px; 
+  padding: 10px; 
+  border-radius: 4px; 
+}
+
+.chat-button {
+  margin-left: 20px; 
+  margin-top: 20px; 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+}

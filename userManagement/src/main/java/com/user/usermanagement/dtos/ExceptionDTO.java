@@ -1,0 +1,12 @@
+package com.user.usermanagement.dtos;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
+@Builder
+public class ExceptionDTO {
+    private String message;
+}

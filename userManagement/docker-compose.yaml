@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  mysqldb:
+    image: mysql
+    container_name: db-users
+    restart: on-failure
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_DATABASE: users-management
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - my-network
+  user-management-app:
+    hostname: backend
+    restart: on-failure
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+    image: user-management-app
+    container_name: user-management-container
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+
+    ports:
+      - "8082:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-docker
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/users-management
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true

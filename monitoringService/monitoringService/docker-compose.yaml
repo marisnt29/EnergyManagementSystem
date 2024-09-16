@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  mysqldb2:
+    image: mysql
+    container_name: db-sensor
+    restart: on-failure
+    ports:
+      - "3312:3306"
+    environment:
+      MYSQL_DATABASE: monitoring-service
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - my-network
+  monitoring-service-app:
+    hostname: backend
+    restart: on-failure
+    depends_on:
+      - mysqldb2
+    links:
+      - mysqldb2
+    image: monitoring-service-app
+    container_name: monitoring-service-container
+    build: .
+    ports:
+      - "8084:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-docker
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb2:3306/monitoring-service
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true
